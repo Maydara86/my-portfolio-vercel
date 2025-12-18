@@ -101,7 +101,7 @@ const Portfolio = () => {
 
               {/* Project Info */}
               <div className={`p-6 ${isRTL ? 'text-right' : 'text-left'}`}>
-                <h3 className={`text-xl font-semibold mb-2 group-hover:text-blue-600 transition-colors duration-200 ${
+                <h3 className={`text-xl font-semibold mb-2 group-hover:font-bold cursor-default transition-transform duration-200 ${
             theme === 'dark' ? 'text-gray-300' : 'text-gray-600'
           }`}>
                   {project.title}
@@ -109,7 +109,7 @@ const Portfolio = () => {
 
                 <p className={`${
                   theme === 'dark' ? 'text-gray-300' : 'text-gray-600'
-                } mb-4 leading-relaxed`}>
+                } mb-4 leading-relaxed cursor-default`}>
                   {project.description}
                 </p>
 
@@ -143,7 +143,7 @@ const Portfolio = () => {
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`inline-flex items-center gap-2 text-blue-600 flex-row hover:text-blue-700 font-medium transition-colors duration-200 `}
+                  className={`inline-flex items-center gap-2 text-blue-600 flex-row hover:text-blue-700 font-medium transition-colors duration-200 ${theme === 'dark' ? 'glow-on-group-dark' : 'glow-on-group-light'}`}
                 >
                   {t.viewProject}
                   <ExternalLink className={`w-4 h-4 ${isRTL ? 'scale-x-[-1]' : ''}`} />
