@@ -49,6 +49,58 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Minimal, subtle glow for CTA links */
+@keyframes glowPulse {
+  0%, 100% {
+    text-shadow: 0 0 0 rgba(59, 130, 246, 0); /* blue-600 */
+  }
+  50% {
+    text-shadow: 0 0 12px rgba(59, 130, 246, 0.7);
+  }
+}
+
+.glow-cta {
+  animation: glowPulse 2.4s ease-in-out infinite;
+}
+
+/* Only glow when hovering the card (.group) */
+/* Drop-shadow based glow so text and icons glow together */
+@keyframes glowDropLight {
+  0%, 100% {
+    filter: drop-shadow(0 0 0 rgba(59, 130, 246, 0));
+  }
+  50% {
+    filter:
+      drop-shadow(0 0 10px rgba(59, 130, 246, 0.8))
+      drop-shadow(0 0 18px rgba(59, 130, 246, 0.5));
+  }
+}
+
+@keyframes glowDropDark {
+  0%, 100% {
+    filter: drop-shadow(0 0 0 rgba(59, 130, 246, 0));
+  }
+  50% {
+    filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.65));
+  }
+}
+
+.group:hover .glow-on-group-light {
+  animation: glowDropLight 1.8s ease-in-out infinite;
+}
+
+.group:hover .glow-on-group-dark {
+  animation: glowDropDark 2.2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glow-cta,
+  .group:hover .glow-on-group-light,
+  .group:hover .glow-on-group-dark {
+    animation: none;
+  }
+}
+
 /* RTL Support */
 [dir="rtl"] {
   text-align: right;
